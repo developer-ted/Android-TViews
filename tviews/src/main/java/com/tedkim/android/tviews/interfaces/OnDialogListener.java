@@ -3,7 +3,7 @@ package com.tedkim.android.tviews.interfaces;
 /**
  * Default dialog listener
  */
-public interface DialogListener {
+public interface OnDialogListener {
 
     void onConfirm();
     void onCancel();

@@ -124,7 +124,7 @@ public class CustomToolBar extends RelativeLayout {
      */
     public CustomToolBar setLeftImageItem(int image) {
         imgLeftItem.setVisibility(View.VISIBLE);
-        textLeftItem.setVisibility(View.GONE);
+        textLeftItem.setVisibility(View.INVISIBLE);
         imgLeftItem.setBackgroundResource(image);
         return this;
     }
@@ -137,7 +137,7 @@ public class CustomToolBar extends RelativeLayout {
      */
     public CustomToolBar setLeftTextItem(String text) {
         textLeftItem.setVisibility(View.VISIBLE);
-        imgLeftItem.setVisibility(View.GONE);
+        imgLeftItem.setVisibility(View.INVISIBLE);
         textLeftItem.setText(text);
         return this;
     }
@@ -170,7 +170,7 @@ public class CustomToolBar extends RelativeLayout {
      * @return CustomToolBar
      */
     public CustomToolBar setLeftBackButton() {
-        textLeftItem.setVisibility(GONE);
+        textLeftItem.setVisibility(INVISIBLE);
         imgLeftItem.setBackgroundResource(R.drawable.ic_arrow_left_white);
         return this;
     }
@@ -181,8 +181,8 @@ public class CustomToolBar extends RelativeLayout {
      * @return CustomToolBar
      */
     public CustomToolBar setHideLeftButton() {
-        textLeftItem.setVisibility(GONE);
-        imgLeftItem.setVisibility(GONE);
+        textLeftItem.setVisibility(INVISIBLE);
+        imgLeftItem.setVisibility(INVISIBLE);
         return this;
     }
 
@@ -196,7 +196,7 @@ public class CustomToolBar extends RelativeLayout {
      */
     public CustomToolBar setRightImageItem(int image) {
         imgRightItem.setVisibility(View.VISIBLE);
-        textRightItem.setVisibility(View.GONE);
+        textRightItem.setVisibility(View.INVISIBLE);
         imgRightItem.setBackgroundResource(image);
         return this;
     }
@@ -209,7 +209,7 @@ public class CustomToolBar extends RelativeLayout {
      */
     public CustomToolBar setRightTextItem(String text) {
         textRightItem.setVisibility(View.VISIBLE);
-        imgRightItem.setVisibility(View.GONE);
+        imgRightItem.setVisibility(View.INVISIBLE);
         textRightItem.setText(text);
         return this;
     }
@@ -242,8 +242,8 @@ public class CustomToolBar extends RelativeLayout {
      * @return CustomToolBar
      */
     public CustomToolBar setHideRightButton() {
-        textRightItem.setVisibility(GONE);
-        imgRightItem.setVisibility(GONE);
+        textRightItem.setVisibility(INVISIBLE);
+        imgRightItem.setVisibility(INVISIBLE);
         return this;
     }
 
