@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -28,6 +29,8 @@ public class CustomToolBar extends RelativeLayout {
     private TextView textTitle;
     private TextView textLeftItem;
     private TextView textRightItem;
+
+    private ImageView imgTitle;
 
     private OnCustomToolBarListener mOnCustomToolBarListener;
 
@@ -60,6 +63,11 @@ public class CustomToolBar extends RelativeLayout {
         textLeftItem = (TextView) v.findViewById(R.id.textLeftItem);
         textRightItem = (TextView) v.findViewById(R.id.textRightItem);
 
+
+        //Adel, 2016-08-26
+        imgTitle = (ImageView) v.findViewById(R.id.imgTitle);
+        imgTitle.setVisibility(View.GONE);
+
         imgLeftItem.setOnClickListener(mOnClickListener);
         imgRightItem.setOnClickListener(mOnClickListener);
         textLeftItem.setOnClickListener(mOnClickListener);
@@ -88,6 +96,10 @@ public class CustomToolBar extends RelativeLayout {
      * @return CustomToolBar
      */
     public CustomToolBar setTitleText(String text) {
+        //Adel, 2016-08-26
+        imgTitle.setVisibility(View.GONE);
+        textTitle.setVisibility(View.VISIBLE);
+
         textTitle.setText(text);
         return this;
     }
@@ -109,8 +121,30 @@ public class CustomToolBar extends RelativeLayout {
      * @param dp text size
      * @return CustomToolBar
      */
-    public CustomToolBar setTitleSize(int dp) {
+    public CustomToolBar setTitleSize(float dp) {
         textTitle.setTextSize(ViewUtils.convertDpToPixels(mContext, dp));
+        return this;
+    }
+
+    //Adel, 2016-08-25
+    /**
+     * Set title text image resid
+     *
+     * @param image title image resource
+     * @param width title image width(dp)
+     * @param height title image height(dp)
+     * @return CustomToolBar
+     */
+    public CustomToolBar setTitleImage(int image, float width, float height) {
+        textTitle.setVisibility(View.GONE);
+        imgTitle.setVisibility(View.VISIBLE);
+
+        imgTitle.setImageResource(image);
+
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)imgTitle.getLayoutParams();
+        params.width = (int)width;
+        params.height = (int)height;
+        imgTitle.setLayoutParams(params);
         return this;
     }
 

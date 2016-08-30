@@ -38,15 +38,29 @@
         android:paddingRight="@dimen/common_margin"
         android:textSize="@dimen/text_medium" />
 
-    <TextView
-        android:id="@+id/textTitle"
+    <!-- Adel, 2016-08-25 -->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_toRightOf="@id/imgLeftItem"
-        android:layout_toLeftOf="@id/imgRightItem"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_large"
-        android:textStyle="bold" />
+        android:layout_toLeftOf="@id/imgRightItem">
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_large"
+            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imgTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </FrameLayout>
 
 </RelativeLayout>
