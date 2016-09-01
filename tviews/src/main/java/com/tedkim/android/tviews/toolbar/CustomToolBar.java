@@ -148,6 +148,18 @@ public class CustomToolBar extends RelativeLayout {
         return this;
     }
 
+    //Adel, 2016-08-31
+    /**
+     * Hide title
+     *
+     * @return CustomToolBar
+     */
+    public CustomToolBar setHideTitle() {
+        textTitle.setVisibility(INVISIBLE);
+        imgTitle.setVisibility(INVISIBLE);
+        return this;
+    }
+
     //==== Left Button =======================================================================================//
 
     /**
