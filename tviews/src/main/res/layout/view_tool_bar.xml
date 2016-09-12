@@ -10,6 +10,7 @@
         android:layout_width="@dimen/view_toolbar_height"
         android:layout_height="@dimen/view_toolbar_height"
         android:gravity="center">
+
         <ImageView
             android:id="@+id/imgLeftItem"
             android:layout_width="wrap_content"
@@ -19,10 +20,12 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layoutRightItem"
         android:layout_width="@dimen/view_toolbar_height"
         android:layout_height="@dimen/view_toolbar_height"
         android:layout_alignParentRight="true"
         android:gravity="center">
+
         <ImageView
             android:id="@+id/imgRightItem"
             android:layout_width="wrap_content"
@@ -53,26 +56,34 @@
     <!-- Adel, 2016-08-25 -->
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_toRightOf="@id/imgLeftItem"
-        android:layout_toLeftOf="@id/imgRightItem">
+        android:layout_height="match_parent">
+
         <TextView
             android:id="@+id/textTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textColor="@color/white"
             android:textSize="@dimen/text_large"
+            android:textColor="@color/black"
             android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center">
+
             <ImageView
                 android:id="@+id/imgTitle"
                 android:layout_width="wrap_content"
+                android:contentDescription="@null"
                 android:layout_height="wrap_content" />
         </LinearLayout>
     </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="#5A5A5A" />
 
 </RelativeLayout>
