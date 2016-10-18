@@ -4,8 +4,9 @@
     android:id="@+id/layoutToolbar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_30"
     android:clickable="false">
-    <!--android:background="@color/black_30"-->
+
 
     <android.support.v7.widget.CardView
         android:layout_width="110dp"

@@ -10,18 +10,11 @@ import com.tedkim.android.tviews.R;
  */
 public class ProgressBarDialog extends Dialog {
 
-    private static ProgressBarDialog mInstance;
-    private Context mContext;
-
     public static ProgressBarDialog getInstance(Context context) {
-//        if (mInstance == null) {
-            mInstance = new ProgressBarDialog(context);
-//        }
-        mInstance.mContext = context;
-        return mInstance;
+        return new ProgressBarDialog(context);
     }
 
-    public ProgressBarDialog(Context context) {
+    private ProgressBarDialog(Context context) {
         super(context, R.style.MaterialDialog);
         setCanceledOnTouchOutside(false);
         initLayout();
@@ -29,6 +22,20 @@ public class ProgressBarDialog extends Dialog {
 
     private void initLayout() {
         setContentView(R.layout.dialog_progress_bar);
+    }
+
+    /**
+     * start loading
+     */
+    public void startLoading() {
+        show();
+    }
+
+    /**
+     * stop loading
+     */
+    public void stopLoading() {
+        dismiss();
     }
 
     @Override
