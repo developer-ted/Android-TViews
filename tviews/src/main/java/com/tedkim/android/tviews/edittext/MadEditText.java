@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,23 +16,25 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.tedkim.android.tviews.R;
-
+import com.tedkim.android.tviews.interfaces.OnRightButtonClickListener;
 
 /**
  * Created by choebongjae on 2016. 11. 18..
  */
 
-public class MadEditText extends RelativeLayout implements View.OnClickListener {
-
+public class MadEditText extends RelativeLayout {
+    private static final String TAG = MadEditText.class.getSimpleName();
     private Context mContext;
 
     private EditText editContent;
     private View editUnderline;
-    private SimpleDraweeView imgBtnClear;
+    private SimpleDraweeView imgClear;
     private TextView textStatus;
+    private OnRightButtonClickListener mOnRightButtonClickListener;
 
     public MadEditText(Context context) {
         super(context);
+        this.mContext = context;
         initEditText(context);
     }
 
@@ -69,16 +72,19 @@ public class MadEditText extends RelativeLayout implements View.OnClickListener 
 
     /**
      * input able editText (ContentText)
+     *
      * @return EditText
      */
-    public EditText getContentEditText(){
+    public EditText getContentEditText() {
         return editContent;
     }
+
     public MadEditText setContentText(String text) {
         editContent.setText(text);
         return this;
     }
-    public String getContentTextToString(){
+
+    public String getContentTextToString() {
         return editContent.getText().toString();
     }
 
@@ -103,6 +109,7 @@ public class MadEditText extends RelativeLayout implements View.OnClickListener 
 
     /**
      * 콘텐츠의 텍스트 사이즈를 sp 로결정
+     *
      * @param size text sp size
      * @return this
      */
@@ -127,8 +134,12 @@ public class MadEditText extends RelativeLayout implements View.OnClickListener 
     //-----------icon btn
     public MadEditText setIconImage(String uri) {
         Uri parseUri = Uri.parse(uri);
-        imgBtnClear.setImageURI(parseUri);
+        imgClear.setImageURI(parseUri);
         return this;
+    }
+
+    public void clearEditText() {
+        editContent.setText("");
     }
 
     private void initEditText(Context context) {
@@ -139,25 +150,33 @@ public class MadEditText extends RelativeLayout implements View.OnClickListener 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.view_edittext_mad, null);
         addView(view);
+
         initLayout(view);
     }
 
     private void initLayout(View view) {
         editContent = (EditText) view.findViewById(R.id.editContent);
         editUnderline = view.findViewById(R.id.viewUnderline);
-        imgBtnClear = (SimpleDraweeView) view.findViewById(R.id.imgBtnClear);
+        imgClear = (SimpleDraweeView) view.findViewById(R.id.imgClear);
         textStatus = (TextView) view.findViewById(R.id.textStatus);
 
-        imgBtnClear.setOnClickListener(this);
+//        textStatus.setVisibility(View.INVISIBLE);
 
-        textStatus.setVisibility(View.INVISIBLE);
+        imgClear.setOnClickListener(mOnClickListener);
     }
 
-    @Override
-    public void onClick(View v) {
-        int id = v.getId();
-        if (id == R.id.imgBtnClear) {
-            editContent.setText("");
+    private OnClickListener mOnClickListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (v.getId() == R.id.imgClear && mOnRightButtonClickListener != null) {
+                mOnRightButtonClickListener.onBtnClick(MadEditText.this.getId());
+            } else if (mOnRightButtonClickListener == null) {
+                throw new NullPointerException("mOnClickListener must be not null");
+            }
         }
+    };
+
+    public void setOnRightButtonClickListener(OnRightButtonClickListener onRightButtonClickListener) {
+        this.mOnRightButtonClickListener = onRightButtonClickListener;
     }
 }
