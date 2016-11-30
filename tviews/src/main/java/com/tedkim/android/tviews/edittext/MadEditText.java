@@ -5,8 +5,9 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,7 @@ import com.tedkim.android.tviews.interfaces.OnRightButtonClickListener;
  * Created by choebongjae on 2016. 11. 18..
  */
 
-public class MadEditText extends RelativeLayout {
+public class MadEditText extends RelativeLayout implements TextWatcher {
     private static final String TAG = MadEditText.class.getSimpleName();
     private Context mContext;
 
@@ -31,27 +32,36 @@ public class MadEditText extends RelativeLayout {
     private SimpleDraweeView imgClear;
     private TextView textStatus;
     private OnRightButtonClickListener mOnRightButtonClickListener;
+    private boolean rightButtonVisible;
 
     public MadEditText(Context context) {
         super(context);
         this.mContext = context;
+        this.rightButtonVisible = false;
         initEditText(context);
     }
 
     public MadEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.mContext = context;
+        this.rightButtonVisible = false;
         initEditText(context);
 
     }
 
     public MadEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.mContext = context;
+        this.rightButtonVisible = false;
         initEditText(context);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public MadEditText(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        this.mContext = context;
+        this.rightButtonVisible = false;
+        initEditText(context);
     }
 //-----------underline
 
@@ -138,6 +148,14 @@ public class MadEditText extends RelativeLayout {
         return this;
     }
 
+    public MadEditText setClearButtonEnable(boolean flag) {
+        this.rightButtonVisible = flag;
+        return this;
+    }
+    public MadEditText setInputType(int inputType){
+        editContent.setInputType(inputType);
+        return this;
+    }
     public void clearEditText() {
         editContent.setText("");
     }
@@ -163,6 +181,9 @@ public class MadEditText extends RelativeLayout {
 //        textStatus.setVisibility(View.INVISIBLE);
 
         imgClear.setOnClickListener(mOnClickListener);
+
+        editContent.addTextChangedListener(this);
+
     }
 
     private OnClickListener mOnClickListener = new OnClickListener() {
@@ -178,5 +199,24 @@ public class MadEditText extends RelativeLayout {
 
     public void setOnRightButtonClickListener(OnRightButtonClickListener onRightButtonClickListener) {
         this.mOnRightButtonClickListener = onRightButtonClickListener;
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        if (rightButtonVisible) {
+            imgClear.setVisibility(View.VISIBLE);
+        } else {
+            imgClear.setVisibility(editContent.getText().toString().length() > 0 ? VISIBLE : INVISIBLE);
+        }
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
     }
 }
