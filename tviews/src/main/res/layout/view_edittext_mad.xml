@@ -44,7 +44,6 @@
         android:layout_toStartOf="@id/imgClear"
         android:background="@null"
         android:layout_marginRight="@dimen/common_margin_micro"
-        android:paddingStart="@dimen/common_margin_micro"
-        android:text="test"/>
+        android:paddingStart="@dimen/common_margin_micro"/>
 
 </RelativeLayout>

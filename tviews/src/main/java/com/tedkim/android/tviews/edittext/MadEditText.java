@@ -20,9 +20,8 @@ import com.tedkim.android.tviews.R;
 import com.tedkim.android.tviews.interfaces.OnRightButtonClickListener;
 
 /**
- * Created by choebongjae on 2016. 11. 18..
+ * EditText.. (RelativeLayout)
  */
-
 public class MadEditText extends RelativeLayout implements TextWatcher {
     private static final String TAG = MadEditText.class.getSimpleName();
     private Context mContext;
@@ -152,10 +151,12 @@ public class MadEditText extends RelativeLayout implements TextWatcher {
         this.rightButtonVisible = flag;
         return this;
     }
-    public MadEditText setInputType(int inputType){
+
+    public MadEditText setInputType(int inputType) {
         editContent.setInputType(inputType);
         return this;
     }
+
     public void clearEditText() {
         editContent.setText("");
     }
