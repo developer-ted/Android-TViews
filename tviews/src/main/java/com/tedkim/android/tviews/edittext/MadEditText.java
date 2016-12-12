@@ -1,10 +1,10 @@
 package com.tedkim.android.tviews.edittext;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -55,7 +55,7 @@ public class MadEditText extends RelativeLayout implements TextWatcher {
         initEditText(context);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public MadEditText(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         this.mContext = context;
