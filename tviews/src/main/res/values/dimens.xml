@@ -17,4 +17,7 @@
     <dimen name="text_super_large">20sp</dimen>
     <dimen name="text_jumbo">26sp</dimen>
 
+    <dimen name="img_mad_clear">22dp</dimen>
+
+    <dimen name="btn_sign_up_dimen">52dp</dimen>
 </resources>

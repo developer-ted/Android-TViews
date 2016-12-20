@@ -7,5 +7,6 @@
     <string name="web_interface">charis_app</string>
     <string name="web_header_key">charis-app</string>
     <string name="web_header_value">android</string>
+    <string name="mad_edit_status">status</string>
 
 </resources>

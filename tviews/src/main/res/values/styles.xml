@@ -13,7 +13,12 @@
         <item name="colorAccent">@color/white</item> <!-- Whatever color you want-->
     </style>
 
-
+    <style name="CustomProgressBarHorizontal" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/style_progress</item>
+        <item name="android:minHeight">10dip</item>
+        <item name="android:maxHeight">20dip</item>
+    </style>
+    
     <!--=============================================================================-->
     <!--Divider Styles-->
     <!--=============================================================================-->
