@@ -13,4 +13,21 @@
         <item name="colorAccent">@color/white</item> <!-- Whatever color you want-->
     </style>
 
+
+    <!--=============================================================================-->
+    <!--Divider Styles-->
+    <!--=============================================================================-->
+
+    <style name="DividerShadowDown">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@drawable/shadow_down</item>
+    </style>
+
+    <style name="DividerShadowUp">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@drawable/shadow_up</item>
+    </style>
+
 </resources>
