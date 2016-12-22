@@ -204,9 +204,9 @@ public class MadEditText extends RelativeLayout implements TextWatcher {
         @Override
         public void onClick(View v) {
             if (v.getId() == R.id.imgClear && mOnRightButtonClickListener != null) {
-                mOnRightButtonClickListener.onBtnClick(MadEditText.this.getId());
+                mOnRightButtonClickListener.onRightBtnClick(MadEditText.this.getId());
             } else if (mOnRightButtonClickListener == null) {
-                throw new NullPointerException("mOnClickListener must be not null");
+                throw new NullPointerException("mOnRightButtonClickListener must be not null");
             }
         }
     };

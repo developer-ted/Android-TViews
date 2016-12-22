@@ -5,5 +5,5 @@ package com.tedkim.android.tviews.interfaces;
  */
 
 public interface OnRightButtonClickListener {
-    void onBtnClick(int viewId);
+    void onRightBtnClick(int viewId);
 }
