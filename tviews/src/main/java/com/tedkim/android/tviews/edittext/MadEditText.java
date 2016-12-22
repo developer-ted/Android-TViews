@@ -2,6 +2,7 @@ package com.tedkim.android.tviews.edittext;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -33,18 +34,20 @@ public class MadEditText extends RelativeLayout implements TextWatcher {
     private OnRightButtonClickListener mOnRightButtonClickListener;
     private boolean rightButtonVisible;
 
+    private String hint;
+
     public MadEditText(Context context) {
         super(context);
         this.mContext = context;
         this.rightButtonVisible = false;
-        initEditText(context);
+        initEditText(context, null, 0);
     }
 
     public MadEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.mContext = context;
         this.rightButtonVisible = false;
-        initEditText(context);
+        initEditText(context, attrs, 0);
 
     }
 
@@ -52,7 +55,7 @@ public class MadEditText extends RelativeLayout implements TextWatcher {
         super(context, attrs, defStyleAttr);
         this.mContext = context;
         this.rightButtonVisible = false;
-        initEditText(context);
+        initEditText(context, attrs, defStyleAttr);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -60,7 +63,7 @@ public class MadEditText extends RelativeLayout implements TextWatcher {
         super(context, attrs, defStyleAttr, defStyleRes);
         this.mContext = context;
         this.rightButtonVisible = false;
-        initEditText(context);
+        initEditText(context, attrs, defStyleAttr);
     }
 //-----------underline
 
@@ -161,7 +164,7 @@ public class MadEditText extends RelativeLayout implements TextWatcher {
         editContent.setText("");
     }
 
-    private void initEditText(Context context) {
+    private void initEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         this.mContext = context;
         if (context == null) {
             throw new NullPointerException("Context is Null");
@@ -170,16 +173,26 @@ public class MadEditText extends RelativeLayout implements TextWatcher {
         View view = inflater.inflate(R.layout.view_edittext_mad, null);
         addView(view);
 
-        initLayout(view);
+        initLayout(view, attrs, defStyleAttr);
     }
 
-    private void initLayout(View view) {
+    private void initLayout(View view, AttributeSet attrs, int defStyleAttr) {
+        // Load attributes
+        final TypedArray typedArray = mContext.obtainStyledAttributes(attrs, R.styleable.MyView, defStyleAttr, 0);
+
         editContent = (EditText) view.findViewById(R.id.editContent);
         editUnderline = view.findViewById(R.id.viewUnderline);
         imgClear = (SimpleDraweeView) view.findViewById(R.id.imgClear);
         textStatus = (TextView) view.findViewById(R.id.textStatus);
 
 //        textStatus.setVisibility(View.INVISIBLE);
+        try {
+            hint = typedArray.getString(R.styleable.MadEditText_hint);
+        } finally {
+            typedArray.recycle();
+        }
+        editContent.setHint(hint);
+
 
         imgClear.setOnClickListener(mOnClickListener);
 
