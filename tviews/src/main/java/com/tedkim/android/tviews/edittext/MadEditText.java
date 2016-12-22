@@ -178,7 +178,7 @@ public class MadEditText extends RelativeLayout implements TextWatcher {
 
     private void initLayout(View view, AttributeSet attrs, int defStyleAttr) {
         // Load attributes
-        final TypedArray typedArray = mContext.obtainStyledAttributes(attrs, R.styleable.MyView, defStyleAttr, 0);
+        final TypedArray typedArray = mContext.obtainStyledAttributes(attrs, R.styleable.MadEditText, defStyleAttr, 0);
 
         editContent = (EditText) view.findViewById(R.id.editContent);
         editUnderline = view.findViewById(R.id.viewUnderline);
