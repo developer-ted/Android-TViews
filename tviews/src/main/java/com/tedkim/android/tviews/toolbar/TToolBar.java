@@ -17,7 +17,7 @@ import com.tedkim.android.tviews.utils.ViewUtils;
  * Custom toolbar class
  * Created by Ted
  */
-public class CustomToolBar extends RelativeLayout {
+public class TToolBar extends RelativeLayout {
 
     private Context mContext;
 
@@ -34,12 +34,12 @@ public class CustomToolBar extends RelativeLayout {
 
     private OnCustomToolBarListener mOnCustomToolBarListener;
 
-    public CustomToolBar(Context context) {
+    public TToolBar(Context context) {
         super(context);
         initCustomToolBar(context);
     }
 
-    public CustomToolBar(Context context, AttributeSet attrs) {
+    public TToolBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         initCustomToolBar(context);
     }
@@ -82,7 +82,7 @@ public class CustomToolBar extends RelativeLayout {
      * @param color color
      * @return CustomToolBar
      */
-    public CustomToolBar setToobarBackground(int color) {
+    public TToolBar setToolbarBackground(int color) {
         layoutToolbar.setBackgroundColor(color);
         return this;
     }
@@ -95,7 +95,7 @@ public class CustomToolBar extends RelativeLayout {
      * @param text title
      * @return CustomToolBar
      */
-    public CustomToolBar setTitleText(String text) {
+    public TToolBar setTitleText(String text) {
         //Adel, 2016-08-26
         imgTitle.setVisibility(View.GONE);
         textTitle.setVisibility(View.VISIBLE);
@@ -110,7 +110,7 @@ public class CustomToolBar extends RelativeLayout {
      * @param color title color
      * @return v
      */
-    public CustomToolBar setTitleColor(int color) {
+    public TToolBar setTitleColor(int color) {
         textTitle.setTextColor(color);
         return this;
     }
@@ -121,7 +121,7 @@ public class CustomToolBar extends RelativeLayout {
      * @param dp text size
      * @return CustomToolBar
      */
-    public CustomToolBar setTitleSize(float dp) {
+    public TToolBar setTitleSize(float dp) {
         textTitle.setTextSize(ViewUtils.convertDpToPixels(mContext, dp));
         return this;
     }
@@ -135,7 +135,7 @@ public class CustomToolBar extends RelativeLayout {
      * @param height title image height(dp)
      * @return CustomToolBar
      */
-    public CustomToolBar setTitleImage(int image, float width, float height) {
+    public TToolBar setTitleImage(int image, float width, float height) {
         textTitle.setVisibility(View.GONE);
         imgTitle.setVisibility(View.VISIBLE);
 
@@ -154,7 +154,7 @@ public class CustomToolBar extends RelativeLayout {
      *
      * @return CustomToolBar
      */
-    public CustomToolBar setHideTitle() {
+    public TToolBar setHideTitle() {
         textTitle.setVisibility(INVISIBLE);
         imgTitle.setVisibility(INVISIBLE);
         return this;
@@ -168,7 +168,7 @@ public class CustomToolBar extends RelativeLayout {
      * @param image image resid
      * @return CustomToolBar
      */
-    public CustomToolBar setLeftImageItem(int image) {
+    public TToolBar setLeftImageItem(int image) {
         imgLeftItem.setVisibility(View.VISIBLE);
         textLeftItem.setVisibility(View.INVISIBLE);
         imgLeftItem.setBackgroundResource(image);
@@ -181,7 +181,7 @@ public class CustomToolBar extends RelativeLayout {
      * @param text text
      * @return CustomToolBar
      */
-    public CustomToolBar setLeftTextItem(String text) {
+    public TToolBar setLeftTextItem(String text) {
         textLeftItem.setVisibility(View.VISIBLE);
         imgLeftItem.setVisibility(View.INVISIBLE);
         textLeftItem.setText(text);
@@ -194,7 +194,7 @@ public class CustomToolBar extends RelativeLayout {
      * @param color text color
      * @return CustomToolBar
      */
-    public CustomToolBar setLeftTextColor(int color) {
+    public TToolBar setLeftTextColor(int color) {
         textLeftItem.setTextColor(color);
         return this;
     }
@@ -205,7 +205,7 @@ public class CustomToolBar extends RelativeLayout {
      * @param dp dp size
      * @return CustomToolBar
      */
-    public CustomToolBar setLeftTextSize(int dp) {
+    public TToolBar setLeftTextSize(int dp) {
         textLeftItem.setTextSize(ViewUtils.convertDpToPixels(mContext, dp));
         return this;
     }
@@ -215,7 +215,7 @@ public class CustomToolBar extends RelativeLayout {
      *
      * @return CustomToolBar
      */
-    public CustomToolBar setLeftBackButton() {
+    public TToolBar setLeftBackButton() {
         textLeftItem.setVisibility(INVISIBLE);
         imgLeftItem.setBackgroundResource(R.drawable.ic_arrow_left_white);
         return this;
@@ -226,7 +226,7 @@ public class CustomToolBar extends RelativeLayout {
      *
      * @return CustomToolBar
      */
-    public CustomToolBar setHideLeftButton() {
+    public TToolBar setHideLeftButton() {
         textLeftItem.setVisibility(INVISIBLE);
         imgLeftItem.setVisibility(INVISIBLE);
         return this;
@@ -240,7 +240,7 @@ public class CustomToolBar extends RelativeLayout {
      * @param image image resid
      * @return CustomToolBar
      */
-    public CustomToolBar setRightImageItem(int image) {
+    public TToolBar setRightImageItem(int image) {
         imgRightItem.setVisibility(View.VISIBLE);
         textRightItem.setVisibility(View.INVISIBLE);
         imgRightItem.setBackgroundResource(image);
@@ -253,7 +253,7 @@ public class CustomToolBar extends RelativeLayout {
      * @param text text
      * @return CustomToolBar
      */
-    public CustomToolBar setRightTextItem(String text) {
+    public TToolBar setRightTextItem(String text) {
         textRightItem.setVisibility(View.VISIBLE);
         imgRightItem.setVisibility(View.INVISIBLE);
         textRightItem.setText(text);
@@ -266,7 +266,7 @@ public class CustomToolBar extends RelativeLayout {
      * @param color text color
      * @return CustomToolBar
      */
-    public CustomToolBar setRightTextColor(int color) {
+    public TToolBar setRightTextColor(int color) {
         textRightItem.setTextColor(color);
         return this;
     }
@@ -277,7 +277,7 @@ public class CustomToolBar extends RelativeLayout {
      * @param dp dp size
      * @return CustomToolBar
      */
-    public CustomToolBar setRightTextSize(int dp) {
+    public TToolBar setRightTextSize(int dp) {
         textRightItem.setTextSize(ViewUtils.convertDpToPixels(mContext, dp));
         return this;
     }
@@ -287,7 +287,7 @@ public class CustomToolBar extends RelativeLayout {
      *
      * @return CustomToolBar
      */
-    public CustomToolBar setHideRightButton() {
+    public TToolBar setHideRightButton() {
         textRightItem.setVisibility(INVISIBLE);
         imgRightItem.setVisibility(INVISIBLE);
         return this;

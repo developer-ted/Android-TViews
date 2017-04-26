@@ -32,8 +32,8 @@
         android:layout_width="@dimen/img_mad_clear"
         android:layout_height="@dimen/img_mad_clear"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/common_margin_micro"
-        fresco:placeholderImage="@drawable/btn_clear_edit"/>
+        android:layout_marginEnd="@dimen/common_margin_micro" />
+    <!--fresco:placeholderImage="@drawable/btn_clear_edit"-->
 
     <EditText
         android:id="@+id/editContent"
